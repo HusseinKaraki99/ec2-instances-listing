@@ -11,9 +11,11 @@ function App() {
   const [number, setNumber] = useState([])
   const [unit, setUnit] = useState("RAM")
 
+
   let service = new IntanceService();
 
 
+  //get data from db when rendering the page
   useEffect(() => {
     service.getInstances()
       .then(res => {
@@ -23,6 +25,7 @@ function App() {
 
 
 
+  //sorting data according to user inputs
   const submitHandler = () => {
 
     if (number !== null) {
@@ -45,7 +48,7 @@ function App() {
 
 
 
-
+  //change color of the favorite instance
   const favoriteHandler = (instance, index) => {
     const color = instance.color === "white" ? "yellow" : "white"
     const updatedData = {
