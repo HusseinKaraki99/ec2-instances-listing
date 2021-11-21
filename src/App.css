@@ -1,19 +1,40 @@
 .App{
   width: 100%;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 30px 0px;
 }
 .form{
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  max-width: 500px;
+  grid-gap: 20px;
 
 }
 .btn-container{
-  margin-top: 12px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+
+.fav-color{
+  width: 10%;
+ padding: 0 8px;
+ margin: 0 8px ;
+ 
+}
+.fav-color:hover{
+  cursor: pointer;
+}
+.green{
+background-color:rgb(95, 255, 80);
+}
+.red{
+  background-color: rgb(255, 77, 77);
+  }
+.yellow{
+    background-color: rgb(255, 255, 75);
+    }

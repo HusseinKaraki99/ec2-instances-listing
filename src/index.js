@@ -4,8 +4,6 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { initJsStore } from "./Storage_service/idb_service";
-import axios from 'axios';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,14 +11,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-axios.get('https://raw.githubusercontent.com/vantage-sh/ec2instances.info/master/www/instances.json')
-  .then(res => {
-    initJsStore(res.data)
-  })
-  .catch(err => {
-    initJsStore()
-    console.log(err)
-  })
+
 
 
 

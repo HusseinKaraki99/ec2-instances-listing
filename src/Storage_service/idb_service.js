@@ -16,7 +16,7 @@ const workerPath = getWorkerPath().default;
 export const idbCon = new Connection(new Worker(workerPath));
 export const dbname = 'instances';
 
-const getDatabase = () => {
+export const getDatabase = () => {
     const tblInstance = {
         name: 'Instances',
         columns: {
@@ -30,7 +30,7 @@ const getDatabase = () => {
             },
             color: {
                 dataType: DATA_TYPE.String,
-                default: "white"
+                default: null
 
             },
             ram: {
@@ -56,33 +56,4 @@ const getDatabase = () => {
     return dataBase;
 };
 
-export const initJsStore = (data) => {
 
-    const dataBase = getDatabase();
-    idbCon.initDb(dataBase).then(isCreated => {
-        if (isCreated) {
-            for (let i = 0; i < data.length; i++) {
-                const element = data[i];
-                if (JSON.stringify(element.pricing) !== '{}') {
-                    const instance = {
-                        name: element.pretty_name,
-                        ram: element.memory,
-                        cpu: element.vCPU,
-                        pricing: element.pricing,
-                        color: "white",
-                    }
-                    idbCon.insert({
-                        into: "Instances",
-                        values: [instance],
-                        return: true
-                    })
-                }
-            }
-        }
-        else {
-            console.log("db opened");
-        }
-    })
-        .catch((err) => console.log(err))
-
-}

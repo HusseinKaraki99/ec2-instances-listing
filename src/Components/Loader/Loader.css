@@ -1,0 +1,40 @@
+
+.loader{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  z-index: 100;
+}
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.spin::before {
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 5px #cfd0d1;
+    border-bottom-color: #3f3f3f;
+    border-radius: 50%;
+    content: "";
+    position:absolute;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100px;
+    will-change: transform;
+  }
+.uploading{
+  margin-top: 20px;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.726);
+}
